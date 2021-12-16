@@ -1,0 +1,15 @@
+# How to draw an elliptic curve over R
+# Do some image processing afterwards
+
+gnuplot> set terminal postscript landscape enhanced mono solid lw 3 "Helvetica" 14 
+Terminal type set to 'postscript'
+Options are 'landscape enhanced defaultplex \
+   leveldefault monochrome colortext \
+   solid dashlength 1.0 linewidth 3.0 butt \
+   palfuncparam 2000,0.003 \
+   "Helvetica" 14 '
+gnuplot> set output "plottemp.ps"                                                  
+gnuplot> f(x) = x*(x-1)(x+2)                                          
+gnuplot> set xrange [-2:2.5]                                                       
+gnuplot> unset label                                                              
+gnuplot> plot sqrt(f(x)) with lines, -sqrt(f(x)) with lines    
